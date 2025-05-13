@@ -7,10 +7,17 @@
   },
   "options": {},
   "attributes": {
-    "label": {
+    "url": {
       "type": "string"
     },
-    "url": {
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "blank",
+        "self"
+      ]
+    },
+    "label": {
       "type": "string"
     }
   }

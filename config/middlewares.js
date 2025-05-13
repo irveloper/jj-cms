@@ -22,7 +22,14 @@ module.exports = [
   },
   'strapi::cors',
   'strapi::poweredBy',
-  'strapi::logger',
+  {
+    name: 'strapi::logger',
+    config: {
+      updates: {
+        enabled: false,
+      }
+    },
+  },
   'strapi::query',
   'strapi::body',
   'strapi::session',

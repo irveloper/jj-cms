@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
+    description: '';
     displayName: 'Footer';
     pluralName: 'footers';
     singularName: 'footer';
@@ -390,7 +391,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    socialLinks: Schema.Attribute.Component<'ui.links', true>;
+    socialLinks: Schema.Attribute.Component<'ui.social-links', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -622,7 +623,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
 export interface ApiPrimaryNavBarPrimaryNavBar extends Struct.SingleTypeSchema {
   collectionName: 'primary_nav_bars';
   info: {
-    description: '';
     displayName: 'PrimaryNavBar';
     pluralName: 'primary-nav-bars';
     singularName: 'primary-nav-bar';
@@ -666,36 +666,6 @@ export interface ApiPrimaryNavBarPrimaryNavBar extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSocialLinkSocialLink extends Struct.CollectionTypeSchema {
-  collectionName: 'social_links';
-  info: {
-    displayName: 'SocialLink';
-    pluralName: 'social-links';
-    singularName: 'social-link';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    icon: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::social-link.social-link'
-    > &
-      Schema.Attribute.Private;
-    network: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
@@ -1213,7 +1183,6 @@ declare module '@strapi/strapi' {
       'api::live-date.live-date': ApiLiveDateLiveDate;
       'api::page.page': ApiPagePage;
       'api::primary-nav-bar.primary-nav-bar': ApiPrimaryNavBarPrimaryNavBar;
-      'api::social-link.social-link': ApiSocialLinkSocialLink;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

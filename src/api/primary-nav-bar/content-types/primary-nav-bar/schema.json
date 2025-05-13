@@ -4,8 +4,7 @@
   "info": {
     "singularName": "primary-nav-bar",
     "pluralName": "primary-nav-bars",
-    "displayName": "PrimaryNavBar",
-    "description": ""
+    "displayName": "PrimaryNavBar"
   },
   "options": {
     "draftAndPublish": true
@@ -17,15 +16,14 @@
   },
   "attributes": {
     "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
+      "type": "media",
+      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -35,22 +33,22 @@
     "links": {
       "type": "component",
       "repeatable": true,
-      "component": "ui.links",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "ui.links"
     },
     "cta": {
       "type": "component",
       "repeatable": false,
-      "component": "ui.links",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "ui.links"
     }
   }
 }

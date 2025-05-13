@@ -34,7 +34,20 @@ export interface UiLinks extends Struct.ComponentSchema {
   };
   attributes: {
     label: Schema.Attribute.String;
+    target: Schema.Attribute.Enumeration<['blank', 'self']>;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface UiSocialLinks extends Struct.ComponentSchema {
+  collectionName: 'components_ui_social_links';
+  info: {
+    displayName: 'socialLinks';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.Text;
   };
 }
 
@@ -44,6 +57,7 @@ declare module '@strapi/strapi' {
       'ui.heading': UiHeading;
       'ui.hero-banner': UiHeroBanner;
       'ui.links': UiLinks;
+      'ui.social-links': UiSocialLinks;
     }
   }
 }
